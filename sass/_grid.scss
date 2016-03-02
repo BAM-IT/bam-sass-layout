@@ -1,0 +1,51 @@
+@mixin bam-grid($args) {
+  $layout: bam-layout($args);
+  @if $layout == flex {
+    @include bam-grid-flex($args);
+  }
+
+  @if $layout == float {
+    @include bam-grid-float($args);
+  }
+}
+
+@mixin bam-grid-flex($args) {
+  display: flex;
+
+  * > {
+    @include bam-grid-flex-span($args);
+    @content;
+  }
+}
+
+@mixin bam-grid-float($args) {
+
+}
+
+@mixin bam-grid-flex-span($args) {
+  $gap: bam-span-gap($args);
+  @for $i from 1 through length($args) {
+    $span: nth($args, $i);
+    @if type-of($span) == number unitless($span) {
+      $nthChild: if(length($args) == 0, '1n', $i);
+      &:nth-child(#{$nthChild}) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        max-width: 100%;
+        width: bam-span-width($fraction, $gap);
+        margin-right: $gap;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin bam-grid-float-span($args) {
+  $gap: bam-span-gap($args);
+  @for $i from 1 through length($args) {
+
+  }
+}

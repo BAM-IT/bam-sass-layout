@@ -1,0 +1,44 @@
+@function bam-layout($args) {
+  @for $i from 1 through length($args) {
+    $item: nth($args, $i);
+    @if $item == flex {
+      @return flex;
+    }
+
+    @if $item == float {
+      @return float;
+    }
+  }
+
+  @return $bam-layout;
+}
+
+@function bam-layout-direction($args) {
+  @for $i from 1 through length($args) {
+    $item: nth($args, $i);
+    @if $item == vertical {
+      @return vertical;
+    }
+
+    @if $item == horizontal {
+      @return horizontal;
+    }
+  }
+
+  @return $bam-layout;
+}
+
+@function bam-span-gap($args) {
+  @for $i from 1 through length($args) {
+    $item: nth($args, $i);
+    @if type-of($item) == number and not(unitless($item)) {
+      @return item;
+    }
+  }
+
+  @return 0;
+}
+
+@function bam-span-width($fraction, $gap) {
+  @return calc(99.99% * percentage($fraction) - (#{$gap} - #{$gap} * percentage($fraction)));
+}

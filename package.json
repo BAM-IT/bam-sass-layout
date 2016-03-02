@@ -1,0 +1,25 @@
+{
+  "name": "bam-sass-layout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BAM-IT/bam-sass-layout.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BAM-IT/bam-sass-layout/issues"
+  },
+  "homepage": "https://github.com/BAM-IT/bam-sass-layout#readme",
+  "devDependencies": {
+    "node-sass": "^3.4.2"
+  },
+  "peerDependencies": {
+    "node-sass": "^3.4.2"
+  }
+}
